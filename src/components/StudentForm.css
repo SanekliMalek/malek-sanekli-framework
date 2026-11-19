@@ -1,0 +1,60 @@
+:root {
+  --form-primary: var(--indigo-500, #5c5bdc);
+  --form-primary-hover: var(--indigo-700, #3b3f8f);
+  --form-background: var(--canvas, #f4f5fa);
+  --form-card: var(--surface, #fff);
+  --form-text: var(--text, #25263a);
+  --form-border: var(--border, #dde0ec);
+  --form-error: #bd3447;
+  --form-success: #16804a;
+}
+
+.student-form-section { max-width: 760px; margin: 0 auto 64px; scroll-margin-top: 84px; }
+.student-form { position: relative; padding: clamp(24px, 5vw, 42px); overflow: hidden; color: var(--form-text); background: var(--form-card); border: 1px solid var(--form-border); border-top: 4px solid transparent; border-radius: 16px; box-shadow: 0 18px 48px rgba(37,39,95,.11), 0 3px 10px rgba(37,39,95,.04); }
+.student-form--editing { border-top-color: var(--form-primary); }
+.student-form h1 { margin: 0; color: var(--indigo-900, #25275f); font-size: clamp(1.55rem, 4vw, 2rem); font-weight: 800; text-align: center; }
+.form-intro { margin: 8px 0 28px; color: #70738a; font-size: .94rem; text-align: center; }
+.edit-badge { display: table; margin: 0 auto 12px; padding: 6px 11px; color: var(--form-primary-hover); background: #eeeefe; border-radius: 999px; font-size: .76rem; font-weight: 800; letter-spacing: .03em; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 19px 20px; }
+.form-group { min-width: 0; display: flex; flex-direction: column; gap: 7px; }
+.form-group label { color: #343653; font-size: .86rem; font-weight: 700; }
+.form-group label span { color: var(--form-error); }
+.form-group input:not(.file-input), .form-group select { width: 100%; height: 46px; padding: 0 13px; color: var(--form-text); background: #fff; border: 1.5px solid #d9dbea; border-radius: 9px; outline: 0; font: inherit; font-size: .94rem; transition: border-color .2s ease, box-shadow .2s ease, background .2s ease; }
+.form-group input::placeholder { color: #999bad; }
+.form-group input:focus, .form-group select:focus { border-color: var(--form-primary); box-shadow: 0 0 0 4px rgba(92,91,220,.14); }
+.form-group select { cursor: pointer; }
+.form-group .is-invalid { border-color: var(--form-error) !important; background: #fff8f8 !important; }
+.form-group .is-invalid:focus { box-shadow: 0 0 0 4px rgba(189,52,71,.12); }
+.form-group--wide { grid-column: 1 / -1; }
+.form-group--wide > .form-group { width: 100%; }
+.form-group--wide input[type="file"] { width: 100%; padding: 8px; color: #70738a; background: #fafaff; border: 1.5px dashed #c9cbea; border-radius: 9px; font: inherit; }
+.form-group--wide input[type="file"]::file-selector-button { margin-right: 12px; padding: 7px 12px; color: var(--form-primary-hover); background: #eeeefe; border: 0; border-radius: 6px; font: inherit; font-weight: 700; cursor: pointer; }
+.image-preview { width: 92px; height: 92px; margin-top: 12px; object-fit: cover; border: 3px solid #e8e9fb; border-radius: 50%; box-shadow: 0 6px 16px rgba(37,39,95,.15); }
+.error-msg { margin: 0; color: var(--form-error); font-size: .78rem; font-weight: 600; }
+.form-actions { display: flex; justify-content: center; gap: 12px; margin-top: 28px; }
+.btn-submit, .btn-cancel { min-width: 150px; padding: 13px 24px; border-radius: 9px; font: inherit; font-weight: 800; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+.btn-submit { color: white; background: var(--form-primary); border: 1px solid var(--form-primary); box-shadow: 0 7px 16px rgba(92,91,220,.22); }
+.btn-submit:hover { background: var(--form-primary-hover); box-shadow: 0 10px 20px rgba(59,63,143,.25); transform: translateY(-2px); }
+.btn-submit:active { transform: scale(.97); }
+.btn-cancel { color: #50526c; background: white; border: 1px solid #cfd1df; }
+.btn-cancel:hover { background: #f5f5fb; }
+.success-msg { margin: 16px 0 0; color: var(--form-success); font-weight: 700; text-align: center; }
+
+@media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; gap: 16px; } .form-group--wide { grid-column: auto; } .form-actions { flex-direction: column; } .btn-submit, .btn-cancel { width: 100%; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .student-form { animation: fadeInUp .45s ease both; }
+  .student-form--editing { animation: fadeInUp .45s ease both, editPulse .65s ease .15s; }
+  .form-group { animation: fadeInUp .35s ease both; }
+  .form-group:nth-child(1) { animation-delay: .04s; } .form-group:nth-child(2) { animation-delay: .07s; } .form-group:nth-child(3) { animation-delay: .1s; } .form-group:nth-child(4) { animation-delay: .13s; } .form-group:nth-child(5) { animation-delay: .16s; } .form-group:nth-child(6) { animation-delay: .19s; } .form-group:nth-child(7) { animation-delay: .22s; } .form-group:nth-child(8) { animation-delay: .25s; } .form-group:nth-child(9) { animation-delay: .28s; }
+  .error-msg { animation: errorIn .22s ease both; }
+  .student-form--invalid .is-invalid { animation: shake .3s ease; }
+  .success-msg { animation: fadeInUp .25s ease both, fadeOut .4s ease 2.1s both; }
+  .image-preview { animation: previewIn .3s ease both; }
+}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes errorIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes shake { 25% { transform: translateX(-4px); } 50% { transform: translateX(4px); } 75% { transform: translateX(-2px); } }
+@keyframes editPulse { 50% { box-shadow: 0 0 0 5px rgba(92,91,220,.12), 0 18px 48px rgba(37,39,95,.11); } }
+@keyframes previewIn { from { opacity: 0; transform: scale(.88); } to { opacity: 1; transform: scale(1); } }
+@keyframes fadeOut { to { opacity: 0; } }

@@ -1,0 +1,5 @@
+.site-header { background: var(--indigo-900); color: white; padding: 26px clamp(18px, 5vw, 72px); }
+.header-brand { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
+.university-monogram { width: 58px; height: 58px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; font-weight: 800; letter-spacing: .08em; }
+.university-name { margin: 0 0 2px; color: #cfd2ff; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.site-header h1 { margin: 0; font-size: clamp(1.35rem, 3vw, 2rem); }

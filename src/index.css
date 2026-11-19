@@ -1,0 +1,23 @@
+:root {
+  --indigo-900: #25275f;
+  --indigo-700: #3b3f8f;
+  --indigo-500: #5c5bdc;
+  --indigo-100: #e8e9fb;
+  --surface: #ffffff;
+  --canvas: #f4f5fa;
+  --text: #25263a;
+  --muted: #70738a;
+  --border: #dde0ec;
+  --shadow: 0 16px 40px rgba(37, 39, 95, 0.1);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--canvas);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, a { font: inherit; }
+a { color: inherit; }
